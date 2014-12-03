@@ -26,7 +26,7 @@ if "HTTP_COOKIE" in os.environ:
 		#print "username = "+c['user_name'].value
 		name = c['user_name'].value
 		#print "name = "+name
-	else:
+	if 'name' in arguments:
 		cook = Cookie.SimpleCookie()
 		cook['user_name'] = arguments['name'].value
 		cook['user_name']['expires'] = 1 * 1 * 3 * 60 * 60
