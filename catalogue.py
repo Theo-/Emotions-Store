@@ -65,10 +65,15 @@ try:
 
 		print "<tr>"
 		for cell in row:
-			if c == 3 and i != 0:
+			if c == 4 and i != 0:
 				canbuy = 1 if int(cell) > 0 else 0
 			print "<td>"
-			print cell
+			if c == 0 and i != 0:
+				print "<img style='width:100px;' src='"+cell+"' />"
+			elif c == 2 and i != 0:
+				print cell+"$"
+			else:
+				print cell
 			print "</td>"
 			c=c+1
 
