@@ -78,7 +78,7 @@ try:
 				print "<input type='hidden' name='line' value='"+`i`+"'/>"
 				print "<input type='hidden' name='a' value='disp'/>"
 				print "<input type='hidden' name='user' value='"+name+"'/>"
-				print "<input type='submit' value='Acheter' input/>"
+				print "<input type='submit' value='purchase' input/>"
 				print "</form></td>"
 			else:
 				print "<td>Out ot stock sorry!</td>"
