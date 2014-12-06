@@ -18,7 +18,7 @@ print open("menu.html").read()
 #print "<p>You just bought this !</p>"
 
 arguments = cgi.FieldStorage()
-print arguments
+#print arguments
 #for i in arguments.keys():
 #        print i+" = "+arguments[i].value
 
