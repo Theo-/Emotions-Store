@@ -40,8 +40,11 @@ if arguments['a'].value == "disp" or arguments['a'].value == "remove":
 		os.system("rm -f "+arguments['user'].value+"_bill.csv")
 	os.system("touch "+arguments['user'].value+"_bill.csv");
 	if 'line' in arguments:
+		line = int(arguments['line'].value)
+		available = int(data[line][4])
 		quantity = int(arguments['amount'].value)
-		for i in range(0, quantity):
+		qbuy = quantity if quantity < available else available
+		for i in range(0, qbuy):
 		#os.system("touch "+arguments['user'].value+"_bill.csv");
 			os.system("echo \""+arguments['line'].value+"\" >> "+arguments['user'].value+"_bill.csv")	
 
