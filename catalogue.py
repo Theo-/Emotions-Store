@@ -52,7 +52,9 @@ print "<p>Hi "+name+", what would you like to buy ?</p>"
 
 #for i in arguments.keys():
 #	print arguments[i].value
-
+print "<form action='purchase.py' method='post'>"
+print "<input type='hidden' name='a' value='disp'/>"
+print "<input type='hidden' name='user' value='"+name+"'/>"
 print "<table id='catalogue_table'>"
 
 f = open('Inventory.csv','rb')
@@ -79,13 +81,14 @@ try:
 
 		if i != 0:
 			if canbuy == 1:
-				print "<td><form action='purchase.py' method='post'>"
-				print "<input type='hidden' name='line' value='"+`i`+"'/>"
-				print "<input type='hidden' name='a' value='disp'/>"
-				print "<input type='text' style='width:30px;' name='amount' value='1'/>"
-				print "<input type='hidden' name='user' value='"+name+"'/>"
-				print "<input type='submit' value='purchase' input/>"
-				print "</form></td>"
+				print "<td>" 
+				#print "<form action='purchase.py' method='post'>"
+				#print "<input type='hidden' name='a' value='disp'/>"
+				print "<input type='text' style='width:30px;' name='amount"+`i`+"' value='1'/>"
+				#print "<input type='hidden' name='user' value='"+name+"'/>"
+				print "<input type='checkbox'  name='check"+`i`+"'/>"
+				#print "</form>" 
+				print "</td>"
 			else:
 				print "<td>Out ot stock sorry!</td>"
 		else:
@@ -97,6 +100,8 @@ finally:
 	f.close()
 
 print "</table>"
+print "<input type='submit' value ='Purchase what is checked'/>"
+print "</form>"
 
 print "<form action='purchase.py' method='post'>"
 print "<input type='hidden' name='user' value='"+name+"'/>"

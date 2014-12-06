@@ -18,8 +18,9 @@ print open("menu.html").read()
 #print "<p>You just bought this !</p>"
 
 arguments = cgi.FieldStorage()
+print arguments
 #for i in arguments.keys():
-        #print i+" = "+arguments[i].value
+#        print i+" = "+arguments[i].value
 
 f = open('Inventory.csv','rb')
 i=0
@@ -39,14 +40,17 @@ if arguments['a'].value == "disp" or arguments['a'].value == "remove":
 		print "Removing file "+arguments['user'].value+"_bill.csv"
 		os.system("rm -f "+arguments['user'].value+"_bill.csv")
 	os.system("touch "+arguments['user'].value+"_bill.csv");
-	if 'line' in arguments:
-		line = int(arguments['line'].value)
-		available = int(data[line][4])
-		quantity = int(arguments['amount'].value)
-		qbuy = quantity if quantity < available else available
-		for i in range(0, qbuy):
-		#os.system("touch "+arguments['user'].value+"_bill.csv");
-			os.system("echo \""+arguments['line'].value+"\" >> "+arguments['user'].value+"_bill.csv")	
+	for key in arguments:
+		if key[:6] == "amount":
+			line = int(key[6:])
+			if "check"+`line` in arguments:
+		#line = int(arguments['line'].value)
+				available = int(data[line][4])
+				quantity = int(arguments[key].value)
+				qbuy = quantity if quantity < available else available
+				for i in range(0, qbuy):
+					#os.system("touch "+arguments['user'].value+"_bill.csv");
+					os.system("echo \""+`line`+"\" >> "+arguments['user'].value+"_bill.csv")	
 
 	f = open(arguments['user'].value+'_bill.csv','rb')
         i=0
