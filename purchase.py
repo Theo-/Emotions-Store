@@ -51,8 +51,8 @@ if arguments['a'].value == "disp" or arguments['a'].value == "remove":
                 reader = csv.reader(f)
                 for row in reader:
                         for cell in row:
-				total = total + int(data[int(cell)][1])
-                                print "You have on <b>"+data[int(cell)][0]+"</b> for <b>"+data[int(cell)][1]+"$</b> <br/>"
+				total = total + int(data[int(cell)][2])
+                                print "You have on <b>"+data[int(cell)][1]+"</b> for <b>"+data[int(cell)][2]+"$</b> <br/>"
         	print "<hr/>"
 		print "<p>Total : <b>"+`total`+"$</b></p>"
 
@@ -82,9 +82,9 @@ if arguments['a'].value == "buy":
                 reader = csv.reader(f)
                 for row in reader:
                         for cell in row:
-                                total = total + int(data[int(cell)][1])
-				data[int(cell)][3] = int(data[int(cell)][3]) - 1
-                                print "You bought <b>"+data[int(cell)][0]+"</b> for <b>"+data[int(cell)][1]+"$</b> <br/>"
+                                total = total + int(data[int(cell)][2])
+				data[int(cell)][4] = int(data[int(cell)][4]) - 1 
+                                print "You bought <b>"+data[int(cell)][1]+"</b> for <b>"+data[int(cell)][2]+"$</b> <br/>"
                 print "<hr/>"	
                 print "<p>Total : <b>"+`total`+"$</b></p>"
 		
