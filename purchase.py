@@ -40,8 +40,10 @@ if arguments['a'].value == "disp" or arguments['a'].value == "remove":
 		os.system("rm -f "+arguments['user'].value+"_bill.csv")
 	os.system("touch "+arguments['user'].value+"_bill.csv");
 	if 'line' in arguments:
+		quantity = int(arguments['amount'].value)
+		for i in range(0, quantity):
 		#os.system("touch "+arguments['user'].value+"_bill.csv");
-		os.system("echo \""+arguments['line'].value+"\" >> "+arguments['user'].value+"_bill.csv")	
+			os.system("echo \""+arguments['line'].value+"\" >> "+arguments['user'].value+"_bill.csv")	
 
 	f = open(arguments['user'].value+'_bill.csv','rb')
         i=0
@@ -83,7 +85,8 @@ if arguments['a'].value == "buy":
                 for row in reader:
                         for cell in row:
                                 total = total + int(data[int(cell)][2])
-				data[int(cell)][4] = int(data[int(cell)][4]) - 1 
+				new_stock = int(data[int(cell)][4]) - 1
+				data[int(cell)][4] = new_stock if new_stock > 0 else 0 
                                 print "You bought <b>"+data[int(cell)][1]+"</b> for <b>"+data[int(cell)][2]+"$</b> <br/>"
                 print "<hr/>"	
                 print "<p>Total : <b>"+`total`+"$</b></p>"

@@ -82,6 +82,7 @@ try:
 				print "<td><form action='purchase.py' method='post'>"
 				print "<input type='hidden' name='line' value='"+`i`+"'/>"
 				print "<input type='hidden' name='a' value='disp'/>"
+				print "<input type='text' style='width:30px;' name='amount' value='1'/>"
 				print "<input type='hidden' name='user' value='"+name+"'/>"
 				print "<input type='submit' value='purchase' input/>"
 				print "</form></td>"
